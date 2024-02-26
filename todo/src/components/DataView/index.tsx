@@ -1,4 +1,4 @@
-import styled from "@emotion/styled";
+import styled from '@emotion/styled';
 import { Title } from 'components/Title';
 import { ToDoList } from 'components/ToDoList';
 
@@ -13,19 +13,19 @@ const Container = styled.div`
 `;
 
 interface ToDoListDto {
-    key?:number;
-    label:string;
-  }
+  key?: number;
+  label: string;
+}
 
 interface Props {
-    readonly toDoList: ReadonlyArray<ToDoListDto>
-    readonly onDelete?: (todo: ToDoListDto) => void;
+  readonly toDoList: ReadonlyArray<ToDoListDto>;
+  readonly onDelete?: (todo: ToDoListDto) => void;
 }
-export const DataView = ({toDoList, onDelete}: Props) => {
-    return(
-      <Container>
-        <Title label="할 일 목록"/>
-        <ToDoList toDoList={toDoList} onDelete={onDelete}/>
-      </Container>
-    )
-}
+export const DataView = ({ toDoList, onDelete }: Props) => {
+  return (
+    <Container>
+      <Title label="할 일 목록" />
+      <ToDoList toDoList={toDoList} onDelete={onDelete} />
+    </Container>
+  );
+};

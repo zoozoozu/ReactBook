@@ -11,13 +11,13 @@ const Label = styled.h1`
 `;
 
 interface Props {
-    readonly label: string;
+  readonly label: string;
 }
 
-export const Title = ({label} : Props) => {
-    return (
-        <Container>
-            <Label>{label}</Label>
-        </Container>
-    );
-}
+export const Title = ({ label }: Props) => {
+  return (
+    <Container>
+      <Label>{label}</Label>
+    </Container>
+  );
+};

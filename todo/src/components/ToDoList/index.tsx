@@ -1,4 +1,4 @@
-import styled from '@emotion/styled'
+import styled from '@emotion/styled';
 import { ToDoItem } from 'components/ToDoItem';
 
 const Container = styled.div`
@@ -7,28 +7,27 @@ const Container = styled.div`
 `;
 
 export interface ToDoListDto {
-    key?:number;
-    label:string;
+  key?: number;
+  label: string;
 }
 
 interface Props {
-    toDoList: ReadonlyArray<ToDoListDto>;
-    onDelete?: (todo: ToDoListDto) => void;
+  toDoList: ReadonlyArray<ToDoListDto>;
+  onDelete?: (todo: ToDoListDto) => void;
 }
 
-export const ToDoList = ({ toDoList, onDelete}: Props) => {
-    return (
-        <Container>
-            {toDoList.map((todo) => (
-                <ToDoItem 
-                    key = {todo.key}
-                    label={todo.label}
-                    onDelete={() => {
-                        if(typeof onDelete === 'function') onDelete(todo);
-                    }}
-                    />
-            ))}
-        </Container>
-    )
-}
-
+export const ToDoList = ({ toDoList, onDelete }: Props) => {
+  return (
+    <Container>
+      {toDoList.map((todo) => (
+        <ToDoItem
+          key={todo.key}
+          label={todo.label}
+          onDelete={() => {
+            if (typeof onDelete === 'function') onDelete(todo);
+          }}
+        />
+      ))}
+    </Container>
+  );
+};

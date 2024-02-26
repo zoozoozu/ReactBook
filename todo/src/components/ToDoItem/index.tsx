@@ -1,5 +1,5 @@
-import styled from '@emotion/styled'
-import {Button} from 'components/Button'
+import styled from '@emotion/styled';
+import { Button } from 'components/Button';
 
 const Container = styled.div`
   display: flex;
@@ -15,15 +15,15 @@ const Label = styled.div`
 `;
 
 interface Props {
-    readonly label: string;
-    readonly onDelete?: () => void;
+  readonly label: string;
+  readonly onDelete?: () => void;
 }
 
-export const ToDoItem = ({label, onDelete}: Props) => {
-    return (
-        <Container>
-            <Label>{label}</Label>
-            <Button label="삭제" onClick={onDelete}/>
-        </Container>
-    )
-}
+export const ToDoItem = ({ label, onDelete }: Props) => {
+  return (
+    <Container>
+      <Label>{label}</Label>
+      <Button label="삭제" onClick={onDelete} />
+    </Container>
+  );
+};

@@ -1,4 +1,4 @@
-import styled from '@emotion/styled'
+import styled from '@emotion/styled';
 
 const Container = styled.button`
   border: 0;
@@ -19,12 +19,10 @@ const Container = styled.button`
 `;
 
 interface Props {
-    readonly label: string;
-    readonly onClick?: () => void;
+  readonly label: string;
+  readonly onClick?: () => void;
 }
 
-export const Button = ({label, onClick}: Props) => {
-    return (
-        <Container onClick={onClick}>{label}</Container>
-    )
-}
+export const Button = ({ label, onClick }: Props) => {
+  return <Container onClick={onClick}>{label}</Container>;
+};
