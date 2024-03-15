@@ -1,5 +1,7 @@
 import styled from '@emotion/styled';
 import { ToDoItem } from 'components/ToDoItem';
+import { ToDoListContext } from 'contexts/ToDoList';
+import { useContext } from 'react';
 
 const Container = styled.div`
   display: flex;
@@ -13,10 +15,12 @@ export interface ToDoListDto {
 
 interface Props {
   toDoList: ReadonlyArray<ToDoListDto>;
-  onDelete?: (todo: ToDoListDto) => void;
+  onDelete?: (todo: number) => void;
 }
 
-export const ToDoList = ({ toDoList, onDelete }: Props) => {
+export const ToDoList = () => {
+  const { toDoList, onDelete } = useContext(ToDoListContext);
+
   return (
     <Container>
       {toDoList.map((todo) => (
