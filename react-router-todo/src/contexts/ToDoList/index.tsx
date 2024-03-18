@@ -62,10 +62,7 @@ const ToDoListContextProvider = ({ children }: Props) => {
   const onDelete = (todo: ToDoListDto) => {
     //delete
     axios.post('http://localhost:8080/api/delete',todo);
-    getToDoList().then((todo)=> {
-        setToDoList(todo.data);
-        console.log(todo.data);
-      })
+    window.location.reload();
     //setToDoList(toDoList.filter((item) => item.key !== todo));
   };
 
@@ -74,10 +71,7 @@ const ToDoListContextProvider = ({ children }: Props) => {
     axios.post('http://localhost:8080/api/save',{label: toDo});
     //setToDoList([...toDoList, {label: toDo}]);
     setShowToDoInput(false);
-    getToDoList().then((todo)=> {
-        setToDoList(todo.data);
-        console.log(todo.data);
-      })
+    window.location.reload();
   };
 
   return (
