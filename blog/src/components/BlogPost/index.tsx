@@ -20,11 +20,16 @@ const Body = styled.div`
   overflow: hidden;
 `;
 
-export const BlogPost = () => {
+interface Props {
+  readonly title: string;
+  readonly body: string;
+}
+
+export const BlogPost = ({ title, body }: Props) => {
     return (
     <Container>
-        <Title>Test</Title>
-        <Body>이것은 테스트용 데이터입니다.</Body>
+        <Title>{title}</Title>
+        <Body>{body}</Body>
     </Container>
     )
 }
