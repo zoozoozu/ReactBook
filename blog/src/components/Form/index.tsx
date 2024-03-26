@@ -1,5 +1,7 @@
+import { useState } from "react";
 import styled from "@emotion/styled";
 import { Button } from "components/Button";
+import axios from "axios";
 
 const Container = styled.div`
   position: absolute;
@@ -62,6 +64,28 @@ interface Props {
 }
 
 export const Form = ({ onClose }: Props) => {
+  const [title, setTitle] = useState('');
+  const [body, setBody] = useState('');
+
+  const registerPost = () => {
+    if(title === '' || body === '') return;
+    
+    axios('https://jsonplaceholder.typicode.com/posts', {
+      method: 'POST',
+      data: {
+        userId: 1,
+        title,
+        body,
+      },
+    })
+      .then((response) => {
+        console.log(response);
+        if(typeof onClose === 'function') onClose();
+      })
+      .catch((error)=> {
+        console.error(error);
+      });
+  }
     return (
       <Container>
         <Background />
@@ -69,14 +93,14 @@ export const Form = ({ onClose }: Props) => {
           <Title>블로그 글 등록</Title>
           <InputGroup>
             <Label>제목: </Label>
-            <Input />
+            <Input value={title} onChange={(e) => setTitle(e.target.value)}/>
           </InputGroup>
           <InputGroup>
             <Label>내용: </Label>
-            <Input />
+            <Input value={body} onChange={(e) => setBody(e.target.value)}/>
           </InputGroup>
           <Actions>
-            <Button label="등록하기" color="green"/>
+            <Button label="등록하기" color="green" onClick={registerPost}/>
             <Button label="닫기" color="#304FFE" onClick={onClose} />
           </Actions>
         </Contents>

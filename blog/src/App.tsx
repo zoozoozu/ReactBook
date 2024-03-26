@@ -4,6 +4,7 @@ import { Header } from "components/Header";
 import { BlogPost } from "components/BlogPost";
 import { Button } from "components/Button";
 import { Form } from "components/Form";
+import axios from "axios";
 
 const Container = styled.div`
   height: 100vh;
@@ -33,9 +34,9 @@ function App() {
   const [showForm, setShowForm] = useState(false);
 
   useEffect(()=>{
-    fetch('https://jsonplaceholder.typicode.com/posts')
-      .then((response) => response.json())
-      .then((json) => setPosts(json))
+    axios('https://jsonplaceholder.typicode.com/posts')
+      .then((response) => response.data) // 서버로부터 전달 받은 데이터를
+      .then((data) => setPosts(data)) // JSON으로 파싱한 데이터를 전달받아 State에 저장
       .catch((error) => {
         console.log(error);
       });
