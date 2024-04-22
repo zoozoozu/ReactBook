@@ -6,6 +6,7 @@ const meta: Meta<typeof Count> = {
     title: 'Atoms/Count',
     component: Count,
     args: {
+
     },
 } satisfies Meta<typeof Count>;
 
@@ -14,6 +15,6 @@ type Story = StoryObj<typeof Count>;
 
 export const OnDefault: Story = {
     args: {
-        value: 0,
+        value:0,
     }
 }

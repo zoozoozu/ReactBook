@@ -9,5 +9,5 @@ interface TitleProps {
 }
 
 export const Title = ({title}:TitleProps) => {
-    return <div>{title}</div>
+    return <Label>{title}</Label>
 }
